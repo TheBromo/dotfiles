@@ -1,0 +1,11 @@
+
+{{ if .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# WSL Specific ignores
+
+{{   end }}
+{{ end }}
+{{ if ne .chezmoi.os "windows"}}
+# What to ignore on windows powershell 
+.bashrc
+{{ end }}
