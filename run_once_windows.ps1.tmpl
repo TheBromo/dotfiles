@@ -1,0 +1,16 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+if (-Not (Get-Command scoop  -errorAction SilentlyContinue))
+{
+	Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+	irm get.scoop.sh | iex
+}
+
+$PACKAGES="starship vcredist2022 helix sudo"
+
+scoop add bucket extras
+scoop bucket add nerd-fonts
+scoop install $PACKAGES
+sudo scoop install -g FiraMono-NF-Mono
+
+{{ end -}}
