@@ -6,11 +6,13 @@ if (-Not (Get-Command scoop  -errorAction SilentlyContinue))
 	irm get.scoop.sh | iex
 }
 
-$PACKAGES="starship vcredist2022 helix sudo"
+$PACKAGES="git starship vcredist2022 helix sudo"
 
 scoop add bucket extras
 scoop bucket add nerd-fonts
 scoop install $PACKAGES
 sudo scoop install -g FiraMono-NF-Mono
+
+
 
 {{ end -}}
